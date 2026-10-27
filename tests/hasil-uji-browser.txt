@@ -1,1 +1,0 @@
-LULUS: dua browser/akun terpisah, kirim file biner/Unicode, enkripsi dan penyimpanan server, reload penerima, catatan pulih, unduh identik byte demi byte, status Sudah dibuka, batas 1 MB, tampilan 1440 dan 390 px, tanpa error JavaScript.

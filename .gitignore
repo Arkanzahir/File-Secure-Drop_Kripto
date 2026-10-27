@@ -8,3 +8,10 @@ __pycache__/
 .env.*
 .venv/
 venv/
+
+# Artefak pengumpulan dan hasil uji disimpan terpisah
+/*.zip
+/Laporan-*.pdf
+/Tampilan-*.png
+/UNTUK-KELOMPOK.md
+/tests/hasil-uji*.txt

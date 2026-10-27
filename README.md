@@ -4,7 +4,7 @@ Aplikasi lokal pengiriman file untuk tugas Diffie-Hellman dan ElGamal. HTML, CSS
 
 ## Menjalankan
 
-1. Ekstrak ZIP ke folder biasa.
+1. Clone repositori ini atau unduh melalui Code > Download ZIP, lalu ekstrak.
 2. Pastikan Python 3.10+ terpasang.
 3. Klik **JALANKAN.bat**. Biarkan jendela server terbuka.
 4. Browser membuka **http://127.0.0.1:8772**.
@@ -20,7 +20,7 @@ Alternatif: `python server.py --open`. Jika port terpakai, jalankan `python serv
 5. Bandingkan file hasil unduhan dengan aslinya. Isinya identik.
 6. Kembali ke Bob untuk melihat status **Sudah dibuka**.
 
-Bisa memakai dua tab atau dua browser pada komputer yang sama dengan akun berbeda. Akun disimpan per tab. Daftar kiriman diperbarui otomatis setiap 6 detik. Kiriman dan kunci disimpan di `data/filedrop.sqlite3`, sehingga tetap ada setelah reload/restart. ZIP distribusi tidak memuat data pribadi atau hasil demo.
+Bisa memakai dua tab atau dua browser pada komputer yang sama dengan akun berbeda. Akun disimpan per tab. Daftar kiriman diperbarui otomatis setiap 6 detik. Kiriman dan kunci disimpan di `data/filedrop.sqlite3`, sehingga tetap ada setelah reload/restart. Database dan kunci otomatis dibuat di komputer masing-masing saat pertama menjalankan aplikasi; keduanya tidak diunggah ke GitHub.
 
 Maksimal 5 file, total **1 MB** per kiriman. Batas ini menjaga kecepatan ElGamal langsung per blok, bukan enkripsi simetri pengganti. Semua jenis file/biner didukung, termasuk file kosong, Unicode, dan byte nol.
 
@@ -58,4 +58,4 @@ Ini simulasi tugas lokal, bukan layanan produksi. Akun dipilih tanpa password un
 - SHA-256: FIPS 180-4, https://csrc.nist.gov/pubs/fips/180-4/upd1/final
 - HMAC: RFC 2104, https://www.rfc-editor.org/rfc/rfc2104
 
-Identitas kelompok dapat ditambahkan pada laporan sebelum dikumpulkan.
+Laporan dan paket pengumpulan tugas disimpan terpisah dari repositori kode.
