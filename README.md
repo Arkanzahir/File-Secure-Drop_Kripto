@@ -2,6 +2,35 @@
 
 Aplikasi lokal pengiriman file untuk tugas Diffie-Hellman dan ElGamal. HTML, CSS, JavaScript, dan Python standard library. Tidak ada pip/npm, framework, CDN, atau library kriptografi.
 
+## Untuk anggota kelompok: mulai dari sini
+
+**Program ini melakukan apa?** Bob memilih dokumen dan mengirimnya kepada Alice. Dokumen disimpan dalam bentuk terenkripsi. Saat Alice mengunduh, program otomatis mengembalikan file ke bentuk aslinya. Seluruh proses kriptografi disembunyikan dari tampilan pengguna.
+
+**Demo paling cepat:** jalankan `JALANKAN.bat`, masuk sebagai Bob, klik **Coba file contoh**, pilih Alice, lalu **Kirim file**. Klik **Akun: Bob**, ganti menjadi Alice, buka **Kotak masuk**, pilih file, dan klik **Unduh file**. Hasilnya sama dengan file asli.
+
+### Peran algoritma dalam satu kasus
+
+1. **ElGamal membuat kunci penerima.** Alice memiliki kunci privat dan kunci publik. Pengirim memakai kunci publik Alice, sedangkan pembukaan file memerlukan kunci privat Alice.
+2. **Diffie-Hellman menyepakati rahasia sesi.** Pengirim dan penerima menghitung rahasia yang sama melalui dua perhitungan terpisah. Rahasia ini dipakai untuk memeriksa integritas kiriman melalui HMAC.
+3. **ElGamal menyandi seluruh isi file.** File dibagi menjadi blok, kemudian setiap blok dienkripsi memakai angka sementara yang berbeda. File tidak hanya diubah nama atau ekstensi.
+4. **Penerima memeriksa dan membuka file.** Program menolak kiriman yang berubah/rusak, mendekripsi blok, menyusunnya kembali, lalu menyiapkan unduhan.
+
+SHA-256 dan HMAC adalah tambahan pemeriksaan integritas. Keduanya juga ditulis sendiri. Enkripsi file tetap memakai ElGamal secara langsung.
+
+### Kode mana yang perlu dibaca?
+
+| File | Peran |
+|---|---|
+| `crypto_core.py` | Semua perhitungan kriptografi mandiri. Mulai dari `diffie_hellman`, `keygen`, `encrypt_number`, dan `decrypt_number`. |
+| `server.py` | Menghubungkan pengiriman dengan kriptografi dan database. Baca `make_record` untuk pengiriman dan `receive_record` untuk penerimaan. |
+| `app.js` | Interaksi pengguna: pilih file, penerima, ganti akun, kirim, dan unduh. |
+| `index.html` dan `styles.css` | Struktur dan tampilan aplikasi. |
+| `laporan/Laporan-File-Secure-Drop.pdf` | Penjelasan tugas dan hasil validasi. Identitas kelompok masih harus diisi. |
+
+**Tentang tanpa library:** algoritma DH, ElGamal, perpangkatan modular, invers, SHA-256, dan HMAC ditulis sendiri. Modul bawaan Python dipakai untuk HTTP, penyimpanan, format data, dan sumber angka acak (`secrets`), bukan untuk enkripsi/dekripsi siap pakai. Tidak perlu memasang paket pip atau npm.
+
+**Tentang akun dan database:** ini simulasi lokal. Bob dan Alice adalah dua sisi yang dikelola server pada satu komputer. Database dan kunci otomatis dibuat saat pertama dijalankan. Teman yang menjalankan di komputer lain mendapatkan database baru, bukan terhubung ke kiriman di komputermu.
+
 ## Menjalankan
 
 1. Clone repositori ini atau unduh melalui Code > Download ZIP, lalu ekstrak.
