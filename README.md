@@ -41,11 +41,9 @@ Tidak ada kunci, rumus, atau ciphertext yang ditampilkan di antarmuka. Fungsi da
 
 Parameter aplikasi: p = 2^61 - 1 = 2305843009213693951, g = 37. Keprimaan diverifikasi dengan Lucas-Lehmer. Basis diverifikasi lewat faktorisasi p-1. Parameter lebih besar dari contoh PPT agar setiap blok dapat menyimpan 7 byte, tetapi tetap kecil untuk demo. Contoh asli PPT diuji terpisah: DH K=79 dan ElGamal HALO menjadi (1439,74), (1220,1682).
 
-## Pengujian
+## Laporan
 
-`python -m unittest discover -s tests -v`
-
-Oracle `hashlib` dan `hmac` hanya dipakai oleh tes untuk memeriksa implementasi mandiri, bukan oleh aplikasi. Pengujian mencakup angka PPT, byte biner/Unicode/nol, pengacakan ciphertext, SHA-256/HMAC, persistensi dan penolakan ciphertext/metadata yang diubah.
+[Laporan program](laporan/Laporan-File-Secure-Drop.pdf) memuat studi kasus, penjelasan algoritma, hasil validasi, dan petunjuk penggunaan. Isi kelompok, nama, dan NRP pada halaman pertama sebelum dikumpulkan.
 
 ## Cakupan
 
@@ -57,5 +55,3 @@ Ini simulasi tugas lokal, bukan layanan produksi. Akun dipilih tanpa password un
 - Menezes, van Oorschot, Vanstone. Handbook of Applied Cryptography, §8.4 dan §12.6: https://cacr.uwaterloo.ca/hac/about/chap8.pdf dan https://cacr.uwaterloo.ca/hac/about/chap12.pdf
 - SHA-256: FIPS 180-4, https://csrc.nist.gov/pubs/fips/180-4/upd1/final
 - HMAC: RFC 2104, https://www.rfc-editor.org/rfc/rfc2104
-
-Laporan dan paket pengumpulan tugas disimpan terpisah dari repositori kode.

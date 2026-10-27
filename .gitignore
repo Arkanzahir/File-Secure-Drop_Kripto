@@ -15,3 +15,6 @@ venv/
 /Tampilan-*.png
 /UNTUK-KELOMPOK.md
 /tests/hasil-uji*.txt
+
+# Tes dan artefak validasi tidak disertakan pada repo pengumpulan
+/tests/
